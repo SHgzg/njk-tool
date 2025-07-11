@@ -1,0 +1,13 @@
+{
+        "type": "table",
+        "title": "table",
+        "th":["id","name","age","email","status"],
+        "tbody":[
+            [1,"Alice",25,"alice@example.com","false"],
+            [1,"Bob",25,"alice@example.com","false"],
+            [1,"Alice",25,"alice@example.com","true"],
+            [1,"Bob",25,"alice@example.com","false"],
+            [1,"Charlie",25,"alice@example.com","true"]
+        ],
+        "options": {}
+    }

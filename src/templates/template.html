@@ -1,0 +1,143 @@
+<!-- Component.njk -->
+Depends[ "./Text.njk", "./Title.njk", "./Table.njk"]
+
+{% macro pick_component(ctx) %}
+    {% if ctx.tag == "text" %}
+        {{ use_text(ctx) }}
+    {% elif ctx.tag == "title" %}
+        {{ use_title(ctx) }}
+    {% elif ctx.tag == "table" %}
+        {{ use_table(ctx) }}
+    {% else %}
+        {{ title_default(ctx) }}
+    {% endif %}
+{% endmacro %}
+{% macro use_component(ctx) %}
+    {% if ctx.tag %}
+        {{ pick_component(ctx) }}
+    {% else %}
+        {% for i in ctx %}
+            {{ pick_component(i) }}
+        {% endfor %}
+    {% endif %}
+{% endmacro %}
+
+{{ use_component(ctx) }}
+<!-- /Component.njk -->
+
+
+
+
+
+
+
+
+<!-- Table.njk -->
+Depends["./Title.njk"]
+
+{% macro table_default(ctx) %}
+    {% if ctx.columns %}
+        {% set columns = ctx.columns %}
+    {% elif ctx.th %}
+        {% set columns = ctx.th %}
+    {% else %}
+        {% set columns = [] %}
+    {% endif %}
+    {% if ctx.data %}
+        {% set data = ctx.data %}
+    {% elif ctx.tbody %}
+        {% set data = ctx.tbody %}
+    {% endif %}
+    {% if ctx.title %}
+        {% set title = {text:ctx.title} %}
+        {{ title_table_default(title) }}
+    {% endif %}
+    <table class="default-table">
+        <thead class="thead-light">
+            <tr>
+                {% for column in columns %}
+                    <th>{{ column }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in data %}
+                <tr class="default-row">
+                    {% if ctx.data %}
+                        {% for column in columns %}
+                            <td class="default-cell">{{ row[column] | replace("false", "❌") | replace("true", "✔️") }}</td>
+                        {% endfor %}
+                    {% else %}
+                        {% for value in row %}
+                            <td class="default-cell">{{ value | replace("false", "❌") | replace("true", "✔️") }}</td>
+                        {% endfor %}
+                    {% endif %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endmacro %}
+{% macro use_table(ctx) %}
+    {% if ctx.type == "h1" %}
+        {{ title_h1(ctx) }}
+    {% else %}
+        {{ table_default(ctx) }}
+    {% endif %}
+{% endmacro %}
+<!-- /Table.njk -->
+
+
+
+
+
+
+
+<!-- Text.njk -->
+{% macro text_default(ctx) %}
+    {{ ctx.text | replace("false", "❌") | replace("true", "✔️") }}
+{% endmacro %}
+
+{% macro bool_text(ctx) %}
+    {{ ctx.text | replace("false", "❌") | replace("true", "✔️") }}
+{% endmacro %}
+
+{% macro use_text(ctx) %}
+{% if ctx.type == "h1" %}
+{{ title_h1(ctx) }}
+{% else %}
+{{ text_default(ctx) }}
+{% endif %}
+{% endmacro %}
+<!-- /Text.njk -->
+
+
+
+
+<!-- Title.njk -->
+{% macro title_default(ctx) %}
+    <div class="title-base" style="{{ ctx.style }}">
+        <span>{{ ctx.text }}</span>
+    </div>
+{% endmacro %}
+{% macro title_h1(ctx) %}
+    <h1 class="title_h1" style="{{ ctx.style }}">
+        {{ ctx.text }}
+    </h1>
+{% endmacro %}
+{% macro title_table_default(ctx) %}
+    <h3 class="title_table_default" style="{{ ctx.style }}">
+        {{ ctx.text }}
+    </h3>
+{% endmacro %}
+{% macro use_title(ctx) %}
+    {% if ctx.type == "h1" %}
+        {{ title_h1(ctx) }}
+    {% else %}
+        {{ title_default(ctx) }}
+    {% endif %}
+{% endmacro %}
+<!-- /Title.njk -->
+
+
+
+

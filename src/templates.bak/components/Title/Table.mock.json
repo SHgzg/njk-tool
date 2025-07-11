@@ -1,0 +1,5 @@
+  {
+        "tag": "title",
+        "title": "示例标题",
+        "style": "--align: center; --text-color: blue; --font-size: 28px;"
+    }

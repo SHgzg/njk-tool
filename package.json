@@ -1,0 +1,29 @@
+{
+  "name": "data2html",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build": "node ./build.js",
+    "prestart": "node ./build.js",
+    "start": "node ./dist/server/index.js",
+    "dev": "node ./src/main.js",
+    "test": "node ./build.js && node ./dist/server/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.9.0",
+  "dependencies": {
+    "chokidar": "^4.0.3",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "nunjucks": "^3.2.4"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.2",
+    "@types/node": "^22.15.30",
+    "@types/nunjucks": "^3.2.6"
+  }
+}

@@ -1,0 +1,22 @@
+{% macro pick_component(ctx) %}
+    {% if ctx.tag == "text" %}
+        {{ use_text(ctx) }}
+    {% elif ctx.tag == "title" %}
+        {{ use_title(ctx) }}
+    {% elif ctx.tag == "table" %}
+        {{ use_table(ctx) }}
+    {% else %}
+        {{ title_default(ctx) }}
+    {% endif %}
+{% endmacro %}
+{% macro use_component(ctx) %}
+    {% if ctx.tag %}
+        {{ pick_component(ctx) }}
+    {% else %}
+        {% for i in ctx %}
+            {{ pick_component(i) }}
+        {% endfor %}
+    {% endif %}
+{% endmacro %}
+
+{{ use_component(ctx) }}
