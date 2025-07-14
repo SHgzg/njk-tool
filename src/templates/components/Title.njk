@@ -1,12 +1,20 @@
 {% macro title_default(ctx) %}
-    <div class="title-base" style="{{ ctx.style }}">
-        <span>{{ ctx.text }}</span>
-    </div>
+    <h1 style="text-align: center">{{ ctx.text }}</h1>
 {% endmacro %}
 {% macro title_h1(ctx) %}
-    <h1 class="title_h1" style="{{ ctx.style }}">
+    <h1 class="color" style="{{ ctx.style }}">
         {{ ctx.text }}
     </h1>
+{% endmacro %}
+{% macro title_h2(ctx) %}
+    <h2 class="color" style="{{ ctx.style }}">
+        {{ ctx.text }}
+    </h2>
+{% endmacro %}
+{% macro title_h3(ctx) %}
+    <h3 class="color" style="{{ ctx.style }}">
+        {{ ctx.text }}
+    </h3>
 {% endmacro %}
 {% macro title_table_default(ctx) %}
     <h3 class="title_table_default" style="{{ ctx.style }}">
@@ -16,6 +24,10 @@
 {% macro use_title(ctx) %}
     {% if ctx.type == "h1" %}
         {{ title_h1(ctx) }}
+    {% elif ctx.type == "h2" %}
+        {{ title_h2(ctx) }}
+    {% elif ctx.type == "h3" %}
+        {{ title_h3(ctx) }}
     {% else %}
         {{ title_default(ctx) }}
     {% endif %}

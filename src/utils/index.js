@@ -1,3 +1,5 @@
+import { readFileSync } from "node:fs";
+
 export const useMockData = (param) => {
     const {name,path} = param
     const filePath =path? path : join(`${process.cwd()}/src/mock`, `${name}.json`)

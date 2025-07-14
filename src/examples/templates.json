@@ -1,17 +1,23 @@
 [
     {
+        "tag": "alert",
+        "text": "示例标题2"
+    },
+    {
         "tag": "title",
         "text": "示例标题11",
         "style": "--align: left; --text-color: blue; --font-size: 28px;"
     },
     {
-        "tag": "alert",
-        "text": "示例标题2"
-    },
-    {
         "tag": "table",
         "title": "table",
-        "columns":["id","name","age","email","status"],
+        "columns": [
+            "id",
+            "name",
+            "age",
+            "email",
+            "status"
+        ],
         "data": [
             {
                 "id": 1,
@@ -39,13 +45,94 @@
     {
         "tag": "table",
         "title": "table",
-        "th":["id","name","age","email","status"],
-        "tbody":[
-            [1,"Alice",25,"alice@example.com","false"],
-            [1,"Bob",25,"alice@example.com","false"],
-            [1,"Alice",25,"alice@example.com","true"],
-            [1,"Bob",25,"alice@example.com","false"],
-            [1,"Charlie",25,"alice@example.com","true"]
+        "th": [
+            "id",
+            "name",
+            "age",
+            "email",
+            "status"
+        ],
+        "tbody": [
+            [
+                1,
+                "Alice",
+                25,
+                "alice@example.com",
+                "false"
+            ],
+            [
+                1,
+                "Bob",
+                25,
+                "alice@example.com",
+                "false"
+            ],
+            [
+                1,
+                "Alice",
+                25,
+                "alice@example.com",
+                "true"
+            ],
+            [
+                1,
+                "Bob",
+                25,
+                "alice@example.com",
+                "false"
+            ],
+            [
+                1,
+                "Charlie",
+                25,
+                "alice@example.com",
+                "true"
+            ]
+        ]
+    },
+    {
+        "tag": "toc",
+        "title": "sidebar",
+        "data": [
+            {
+                "text": "第一章 引言",
+                "items": [
+                    {
+                        "text": "研究背景",
+                        "link": "#background"
+                    },
+                    {
+                        "text": "研究目的",
+                        "link": "#purpose"
+                    }
+                ]
+            },
+            {
+                "text": "第二章 方法",
+                "items": [
+                    {
+                        "text": "实验设计",
+                        "link": "#design"
+                    },
+                    {
+                        "text": "数据收集",
+                        "link": "#collection"
+                    },
+                    {
+                        "text": "分析方法",
+                        "items": [
+                            {
+                                "text": "定量分析",
+                                "link": "#quantitative"
+                            },
+                            {
+                                "text": "定性分析",
+                                "link": "#qualitative"
+                            }
+                        ]
+                    }
+                ]
+            }
         ]
     }
 ]

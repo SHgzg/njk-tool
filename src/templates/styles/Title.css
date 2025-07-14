@@ -1,0 +1,37 @@
+.title-base {
+    --align: center;
+    --text-color: black;
+    --font-weight: 800;
+    --font-size: 18px;
+    color: var(--text-color);
+    text-align: var(--align);
+    font-weight: var(--font-weight);
+    font-size: var(--font-size);
+    padding: 8px 30px;
+}
+
+.title-main {
+    --align: center;
+    --text-color: black;
+    --font-weight: 800;
+    --font-size: 28px;
+    color: var(--text-color);
+    text-align: var(--align);
+    font-weight: var(--font-weight);
+    font-size: var(--font-size);
+    padding: 8px 30px;
+    margin-bottom: 20px;
+}
+
+.title-custom {
+    --align: center;
+    --text-color: black;
+    --font-weight: 800;
+    --font-size: 28px;
+    color: var(--text-color);
+    text-align: var(--align);
+    font-weight: var(--font-weight);
+    font-size: var(--font-size);
+    padding: 8px 30px;
+    margin-bottom: 20px;
+}

@@ -24,7 +24,7 @@ watcher
     // .on('addDir', console.log(`新建目录: ${path}`))
     // .on('unlinkDir', path => console.log(`删除目录: ${path}`));
 
-const port = 3005
+const port = 3007
 app.listen(port, () => {
     console.log(`Templates 开发服务器已启动 ${port}`);
 });
@@ -52,3 +52,7 @@ function getBaseCss(){
 // http://localhost:3005/test/index/tab
 
 // http://localhost:3005/comp/title
+
+// windows
+//  netstat -ano | findstr ":3005"  
+// Stop-Process -Id 33108 -Force

@@ -1,5 +1,3 @@
-Depends[ "./Text.njk", "./Title.njk", "./Table.njk"]
-
 {% macro pick_component(ctx) %}
     {% if ctx.tag == "text" %}
         {{ use_text(ctx) }}
@@ -7,6 +5,8 @@ Depends[ "./Text.njk", "./Title.njk", "./Table.njk"]
         {{ use_title(ctx) }}
     {% elif ctx.tag == "table" %}
         {{ use_table(ctx) }}
+    {% elif ctx.tag == "toc" %}
+        {{ use_toc(ctx) }}
     {% else %}
         {{ title_default(ctx) }}
     {% endif %}
