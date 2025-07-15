@@ -1,0 +1,44 @@
+/* Tab 容器 */
+.tab-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* 隐藏 Radio 按钮 */
+.tab-radio {
+  display: none;
+}
+
+/* Tab 按钮样式 */
+.tab-labels {
+  display: flex;
+  border-bottom: 1px solid #ccc;
+}
+
+.tab-label {
+  padding: 5px 10px;
+  cursor: pointer;
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  border-bottom: none;
+  margin-right: 2px;
+  border-radius: 5px 5px 0 0;
+}
+
+.tab-label:hover {
+  background-color: #ddd;
+}
+
+.tab-radio:checked+.tab-label {
+  background-color: #fff;
+  border-bottom: 1px solid #fff;
+  margin-bottom: -1px;
+}
+
+/* Tab 内容区域 */
+.tab-content {
+  display: none;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-top: none;
+}

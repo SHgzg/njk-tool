@@ -1,7 +1,8 @@
 /* 基础样式 */
 .article-toc {
   position: fixed;
-  top: 2rem;
+  top: 50px;
+  right: 2rem;
   max-height: calc(100vh - 4rem);
   margin-left: 2rem;
   font-size: 0.95rem;

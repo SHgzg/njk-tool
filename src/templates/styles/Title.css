@@ -1,37 +1,69 @@
 .title-base {
-    --align: center;
-    --text-color: black;
-    --font-weight: 800;
-    --font-size: 18px;
-    color: var(--text-color);
-    text-align: var(--align);
-    font-weight: var(--font-weight);
-    font-size: var(--font-size);
-    padding: 8px 30px;
+  --align: left;
+  --text-color: black;
+  --font-weight: 800;
+  --font-size: 18px;
+  color: var(--text-color);
+  text-align: var(--align);
+  font-weight: var(--font-weight);
+  font-size: var(--font-size);
+  padding: 8px 30px;
+}
+
+h1 {
+  --align: left;
+  --text-color: #606266;
+  --margin: 36px 0 20px;
+  position: relative;
+  font-size: 35.2px;
+  padding: 0 0 4.8px;
+  margin: var(--margin);
+  color: var(--text-color);
+  text-align: var(--align);
+}
+
+h2 {
+  --align: left;
+  --text-color: #606266;
+  --margin: 36px 0 20px;
+  position: relative;
+  font-size: 26.4px;
+  padding: 0 0 4.8px;
+  margin: var(--margin);
+  color: var(--text-color);
+  text-align: var(--align);
+}
+
+h2::before,
+h1::before {
+  display: none;
+  position: absolute;
+  content: "#";
+  color: #007bff;
+}
+
+h1::before {
+  left: -26px;
+}
+
+h2::before {
+  left: -18px;
+}
+
+h1:hover::before,
+h2:hover::before {
+  display: inline-block;
 }
 
 .title-main {
-    --align: center;
-    --text-color: black;
-    --font-weight: 800;
-    --font-size: 28px;
-    color: var(--text-color);
-    text-align: var(--align);
-    font-weight: var(--font-weight);
-    font-size: var(--font-size);
-    padding: 8px 30px;
-    margin-bottom: 20px;
-}
-
-.title-custom {
-    --align: center;
-    --text-color: black;
-    --font-weight: 800;
-    --font-size: 28px;
-    color: var(--text-color);
-    text-align: var(--align);
-    font-weight: var(--font-weight);
-    font-size: var(--font-size);
-    padding: 8px 30px;
-    margin-bottom: 20px;
+  --align: left;
+  --text-color: black;
+  --font-weight: 800;
+  --font-size: 28px;
+  color: var(--text-color);
+  text-align: var(--align);
+  font-weight: var(--font-weight);
+  font-size: var(--font-size);
+  padding: 8px 30px;
+  margin-bottom: 20px;
 }

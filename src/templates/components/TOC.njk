@@ -9,7 +9,13 @@
   <nav class="toc-nav">
     {% for section in ctx.data %}
     <section class="toc-section">
+      {% if section.link %}
+      <h3 class="toc-heading">
+        <a href="{{ section.link }}" class="toc-link">{{ section.text }}</a>
+      </h3>
+      {% else%}
       <h3 class="toc-heading">{{ section.text }}</h3>
+      {% endif %}
       <ul class="toc-list">
         {% for item in section.items %}
         <li class="toc-item">

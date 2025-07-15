@@ -1,0 +1,11 @@
+{% macro use_notice(ctx) %}
+    {% if ctx.type %}
+        {% set type = ctx.type %}
+    {% else %}
+        {% set type = "info" %}
+    {% endif %}
+  <div class="notice notice-{{ type }}">
+    <div class="notice-title">{{ type|capitalize }}:</div>
+    <pre class="notice-content">{{ ctx.text }}</pre>
+  </div>
+{% endmacro %}

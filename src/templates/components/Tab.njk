@@ -1,0 +1,29 @@
+{% macro useTab(tabs) %}
+    <style>
+    /* 显示选中的 Tab 内容 */
+    {% for tab in tabs %}
+    #{{tab.id}}:checked~#{{tab.content_id}} {
+        display: block;
+    }
+    {% endfor %}
+    </style>
+    <div class="tab-container">
+        {% for tab in tabs %}
+            <!-- Radio 按钮（隐藏） -->
+            <input {% if loop.first %} checked {% endif %} type="radio" name="tabs" id="{{ tab.id }}" class="tab-radio">
+            {% endfor %}
+            <!-- Tab 按钮（用 label 包裹） -->
+            <div class="tab-labels">
+                {% for tab in tabs %}
+                    <label for="{{ tab.id }}" class="tab-label">{{ tab.title }}
+                    </label>
+                {% endfor %}
+            </div>
+            <!-- Tab 内容 -->
+            {% for tab in tabs %}
+                <div id="{{ tab.content_id }}" class="tab-content">
+                    {{ tab.content }}
+                </div>
+            {% endfor %}
+        </div>
+    {% endmacro %}

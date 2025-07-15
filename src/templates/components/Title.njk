@@ -2,22 +2,22 @@
     <h1 style="text-align: center">{{ ctx.text }}</h1>
 {% endmacro %}
 {% macro title_h1(ctx) %}
-    <h1 class="color" style="{{ ctx.style }}">
+    <h1 id="{{ ctx.text }}" class="title-color" style="{{ ctx.style }}">
         {{ ctx.text }}
     </h1>
 {% endmacro %}
 {% macro title_h2(ctx) %}
-    <h2 class="color" style="{{ ctx.style }}">
+    <h2 id="{{ ctx.text }}" class="title-color" style="{{ ctx.style }}">
         {{ ctx.text }}
     </h2>
 {% endmacro %}
 {% macro title_h3(ctx) %}
-    <h3 class="color" style="{{ ctx.style }}">
+    <h3 id="{{ ctx.text }}" class="title-color" style="{{ ctx.style }}">
         {{ ctx.text }}
     </h3>
 {% endmacro %}
 {% macro title_table_default(ctx) %}
-    <h3 class="title_table_default" style="{{ ctx.style }}">
+    <h3 id="{{ ctx.text }}" class="title_table_default" style="{{ ctx.style }}">
         {{ ctx.text }}
     </h3>
 {% endmacro %}

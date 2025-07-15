@@ -7,6 +7,14 @@
         {{ use_table(ctx) }}
     {% elif ctx.tag == "toc" %}
         {{ use_toc(ctx) }}
+    {% elif ctx.tag == "notice" %}
+        {{ use_notice(ctx) }}
+    {% elif ctx.tag == "block" %}
+        {{ use_block(ctx) }}
+    {% elif ctx.tag == "date" %}
+        {{ use_date(ctx) }}
+    {% elif ctx.tag == "checker" %}
+        {{ use_checker(ctx) }}
     {% else %}
         {{ title_default(ctx) }}
     {% endif %}
