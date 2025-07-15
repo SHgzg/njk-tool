@@ -3,7 +3,7 @@ import { readFileSync, writeFileSync } from "node:fs";
 import { relative } from "node:path";
 
 
-const TARGET_PATH = `${process.cwd()}/src/templates`
+const TARGET_PATH = `${process.cwd()}/src`
 export const watcher = watch(TARGET_PATH, {
     persistent: true,         // 持续监听
     awaitWriteFinish: {       // 等待文件写入完成再触发
@@ -118,8 +118,8 @@ class StyleTool {
 }
 
 export class Template {
-    template_root_path = `${process.cwd()}/src/templates/template.html`;
-    style_root_path = `${process.cwd()}/src/templates/base.style`
+    template_root_path = `${process.cwd()}/src/index.html`;
+    style_root_path = `${process.cwd()}/src/base.style`
     sortComp = [
         "Text.njk",
         "Title.njk",

@@ -1,0 +1,17 @@
+{% macro use_head(ctx) %}
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ ctx.title }}</title>
+  {% if ctx.jsFiles%}
+  {% for css in ctx.cssFiles %}
+    <link rel="stylesheet" href="{{ css }}" />
+  {% endfor %}
+  {% endif %}
+</head>
+  {% if ctx.jsFiles%}
+  {% for js in ctx.jsFiles %}
+    <script src="{{ js }}"></script>
+  {% endfor %}
+  {% endif %}
+{% endmacro %}

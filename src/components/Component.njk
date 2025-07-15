@@ -1,5 +1,7 @@
 {% macro pick_component(ctx) %}
-    {% if ctx.tag == "text" %}
+    {% if ctx.tag == "head" %}
+        {{ use_head(ctx) }}
+    {% elif ctx.tag == "text" %}
         {{ use_text(ctx) }}
     {% elif ctx.tag == "title" %}
         {{ use_title(ctx) }}
