@@ -3,8 +3,8 @@
 import express from "express"
 import { readFileSync } from "fs";
 import nunjucks from "nunjucks";
-import { addHandler, changeHandler, unlinkHandler, watcher } from "./hook";
-import { useMockData } from "./utils";
+import { addHandler, changeHandler, unlinkHandler, watcher } from "./hook.js";
+import { useMockData } from "./utils.js";
 
 const app = express()
 app.set('view engine', 'html')

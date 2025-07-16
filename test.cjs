@@ -1,0 +1,182 @@
+const {njkRenderSync} = require("./dist/bundle/app.min.cjs")
+
+const html = njkRenderSync([
+    {
+        "tag": "title",
+        "type": "h1",
+        "text": "2025-07-15 Tap 报告生成模板测试"
+    },
+    {
+        "tag": "date",
+        "text": "20250715"
+    },
+    {
+        "tag": "checker",
+        "text": "龚兆国"
+    },
+    {
+        "tag": "title",
+        "type": "h1",
+        "text": "内容一级标题测试"
+    },
+    {
+        "tag": "title",
+        "type": "h2",
+        "text": "内容二级标题自定义测试",
+        "style": "--align: left; --text-color: #409EFF;"
+    },
+    {
+        "tag": "table",
+        "title": "字典参数类型表格测试",
+        "columns": [
+            "id",
+            "name",
+            "age",
+            "email",
+            "status"
+        ],
+        "data": [
+            {
+                "id": 1,
+                "name": "Alice",
+                "age": 25,
+                "email": "alice@example.com",
+                "status": "false"
+            },
+            {
+                "id": 2,
+                "name": "Bob",
+                "age": 30,
+                "email": "bob@example.com",
+                "status": "true"
+            },
+            {
+                "id": 3,
+                "name": "Charlie",
+                "age": 35,
+                "email": "charlie@example.com",
+                "status": "false"
+            }
+        ]
+    },
+    {
+        "tag": "table",
+        "title": "数组参数类型表格测试",
+        "th": [
+            "id",
+            "name",
+            "age",
+            "email",
+            "status"
+        ],
+        "tbody": [
+            [
+                1,
+                "Alice",
+                25,
+                "alice@example.com",
+                "false"
+            ],
+            [
+                1,
+                "Bob",
+                25,
+                "alice@example.com",
+                "false"
+            ],
+            [
+                1,
+                "Alice",
+                25,
+                "alice@example.com",
+                "true"
+            ],
+            [
+                1,
+                "Bob",
+                25,
+                "alice@example.com",
+                "false"
+            ],
+            [
+                1,
+                "Charlie",
+                25,
+                "alice@example.com",
+                "true"
+            ]
+        ]
+    },
+    {
+        "tag": "notice",
+        "type": "info",
+        "text": "Notice模块 \n测试请注意应该注意的注意事项！"
+    },
+    {
+        "tag": "notice",
+        "type": "success",
+        "text": "Notice模块 \n测试请注意应该注意的注意事项！"
+    },
+    {
+        "tag": "notice",
+        "type": "warning",
+        "text": "Notice模块 \n测试请注意应该注意的注意事项！"
+    },
+    {
+        "tag": "notice",
+        "type": "error",
+        "text": "Notice模块 \n测试请注意应该注意的注意事项！"
+    },
+    {
+        "tag": "title",
+        "type": "h1",
+        "text": "block 测试"
+    },
+    {
+        "tag": "block",
+        "text": "Bloc 模块 \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+    },
+    {
+        "tag": "title",
+        "type": "h2",
+        "text": "目录导航测试"
+    },
+    {
+        "tag": "toc",
+        "title": "sidebar",
+        "data": [
+            {
+                "text": "内容一级标题测试",
+                "link": "#内容一级标题测试",
+                "items": [
+                    {
+                        "text": "内容二级标题自定义测试",
+                        "link": "#内容二级标题自定义测试"
+                    },
+                    {
+                        "text": "字典参数类型表格测试",
+                        "link": "#字典参数类型表格测试"
+                    },
+                    {
+                        "text": "数组参数类型表格测试",
+                        "link": "#数组参数类型表格测试"
+                    }
+                ]
+            },
+            {
+                "text": "第二部分内容测试",
+                "items": [
+                    {
+                        "text": "block 测试",
+                        "link": "#block 测试"
+                    },
+                    {
+                        "text": "目录导航测试",
+                        "link": "#目录导航测试"
+                    }
+                ]
+            }
+        ]
+    }
+])
+console.log(html);

@@ -1,14 +1,24 @@
 {
   "compilerOptions": {
     "target": "ES6",
-    "module": "commonjs",
+    "module": "esnext",
+    "moduleResolution": "node",
     "outDir": "./dist",
     "rootDir": "./src",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "importHelpers": true, // 启用 tslib 辅助函数注入
   },
-  "include": ["src/**/*", "**/*.ts"],  // 添加更宽泛的匹配模式
-  "exclude": ["node_modules", "dist"]  // 明确排除目录
+  "include": [
+    "src/**/*",
+    "**/*.ts"
+  ], // 添加更宽泛的匹配模式
+  "exclude": [
+    "node_modules",
+    "dist"
+  ] // 明确排除目录
 }

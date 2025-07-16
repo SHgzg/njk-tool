@@ -1,0 +1,347 @@
+/* Components.css */
+
+/* END-Components.css */
+
+/* TOC.css */
+/* 基础样式 */
+.article-toc {
+  position: fixed;
+  top: 50px;
+  right: 2rem;
+  max-height: calc(100vh - 4rem);
+  margin-left: 2rem;
+  font-size: 0.95rem;
+}
+
+/* 隐藏 checkbox */
+.toc-toggle-checkbox {
+  position: absolute;
+  opacity: 0;
+  height: 0;
+  width: 0;
+}
+
+/* 切换按钮样式 */
+.toc-toggle-label {
+  display: flex;
+  align-items: center;
+  background: #f8f9fa;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 0.5rem;
+}
+
+.toc-icon {
+  font-size: 1.2rem;
+  margin-right: 0.3rem;
+}
+
+/* 目录导航 */
+.toc-nav {
+  padding: 0.5rem;
+  background: white;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.toc-section {
+  margin-bottom: 0.8rem;
+}
+
+.toc-heading {
+  font-size: 1rem;
+  margin: 0 0 0.4rem 0;
+  padding-bottom: 0.2rem;
+  border-bottom: 1px solid #eee;
+}
+
+.toc-list {
+  list-style: none;
+  padding-left: 0.4rem;
+  margin: 0;
+}
+
+.toc-item {
+  margin: 0.2rem 0;
+}
+
+.toc-link {
+  display: block;
+  padding: 0.2rem 0.4rem;
+  color: #495057;
+  text-decoration: none;
+  border-radius: 3px;
+  transition: all 0.2s;
+}
+
+.toc-link:hover {
+  background: #f0f0f0;
+  color: #007bff;
+}
+
+/* 层级缩进 */
+.toc-link[data-level="2"] {
+  padding-left: 0.8rem;
+}
+
+.toc-link[data-level="3"] {
+  padding-left: 1.6rem;
+}
+
+/* 激活状态 */
+.toc-link.active {
+  background: #e7f5ff;
+  color: #0066cc;
+  font-weight: 500;
+}
+
+/* 折叠功能实现 */
+.toc-toggle-checkbox:not(:checked) ~ .toc-nav {
+  display: none;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .article-toc {
+    margin-left: 1rem;
+    font-size: 0.9rem;
+  }
+}
+/* END-TOC.css */
+
+/* Text.css */
+
+/* END-Text.css */
+
+/* Title.css */
+.title-base {
+  --align: left;
+  --text-color: black;
+  --font-weight: 800;
+  --font-size: 18px;
+  color: var(--text-color);
+  text-align: var(--align);
+  font-weight: var(--font-weight);
+  font-size: var(--font-size);
+  padding: 8px 30px;
+}
+
+h1 {
+  --align: left;
+  --text-color: #606266;
+  --margin: 36px 0 20px;
+  position: relative;
+  font-size: 35.2px;
+  padding: 0 0 4.8px;
+  margin: var(--margin);
+  color: var(--text-color);
+  text-align: var(--align);
+}
+
+h2 {
+  --align: left;
+  --text-color: #606266;
+  --margin: 36px 0 20px;
+  position: relative;
+  font-size: 26.4px;
+  padding: 0 0 4.8px;
+  margin: var(--margin);
+  color: var(--text-color);
+  text-align: var(--align);
+}
+
+h2::before,
+h1::before {
+  display: none;
+  position: absolute;
+  content: "#";
+  color: #007bff;
+}
+
+h1::before {
+  left: -26px;
+}
+
+h2::before {
+  left: -18px;
+}
+
+h1:hover::before,
+h2:hover::before {
+  display: inline-block;
+}
+
+.title-main {
+  --align: left;
+  --text-color: black;
+  --font-weight: 800;
+  --font-size: 28px;
+  color: var(--text-color);
+  text-align: var(--align);
+  font-weight: var(--font-weight);
+  font-size: var(--font-size);
+  padding: 8px 30px;
+  margin-bottom: 20px;
+}
+
+/* END-Title.css */
+
+/* Notice.css */
+/* Notice */
+.notice {
+  margin: 16px 0;
+  padding: 12px 16px;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.notice-title {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+/* 不同类型的通知样式 */
+.notice-info {
+  background-color: #e8f4ff;
+  border-left: 4px solid #1890ff;
+}
+
+.notice-warning {
+  background-color: #fff7e6;
+  border-left: 4px solid #faad14;
+}
+
+.notice-success {
+  background-color: #f6ffed;
+  border-left: 4px solid #52c41a;
+}
+
+.notice-error {
+  background-color: #fff2f0;
+  border-left: 4px solid #f5222d;
+}
+/* END-Notice.css */
+
+/* Block.css */
+/* Block.njk */
+.code-block {
+  margin: 16px 0;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.code-block pre {
+  margin: 0;
+  padding: 1rem;
+  background-color: #f5f5f5;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
+
+.code-block code {
+  display: block;
+  overflow-x: auto;
+  
+}
+/* END-Block.css */
+
+/* Table.css */
+.default-table {
+  margin: 0;
+  width: 80%;
+  border-collapse: collapse;
+  /* 合并边框 */
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: #444444;
+}
+
+.thead-light th {
+  background-color: #f5f7fa;
+  color: #333333;
+  font-weight: 600;
+  padding: 12px 16px;
+  text-align: left;
+  border: 1px solid #e1e4e8;
+  font-size: 16px;
+}
+
+.default-row {
+  border: 1px solid #eee;
+  background-color: #fff;
+
+}
+
+.default-row:hover {
+  background-color: #f0f4f8;
+  color: rebeccapurple;
+}
+
+.default-cell {
+  padding: 10px 16px;
+  border: 1px solid #e1e4e8;
+  font-weight: 400;
+  font-size: 14px;
+  color: #444;
+  background-color: transparent;
+}
+/* END-Table.css */
+
+/* Tab.css */
+/* Tab 容器 */
+.tab-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* 隐藏 Radio 按钮 */
+.tab-radio {
+  display: none;
+}
+
+/* Tab 按钮样式 */
+.tab-labels {
+  display: flex;
+  border-bottom: 1px solid #ccc;
+}
+
+.tab-label {
+  padding: 5px 10px;
+  cursor: pointer;
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  border-bottom: none;
+  margin-right: 2px;
+  border-radius: 5px 5px 0 0;
+}
+
+.tab-label:hover {
+  background-color: #ddd;
+}
+
+.tab-radio:checked+.tab-label {
+  background-color: #fff;
+  border-bottom: 1px solid #fff;
+  margin-bottom: -1px;
+}
+
+/* Tab 内容区域 */
+.tab-content {
+  display: none;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+/* END-Tab.css */
+
+/* Base.css */
+body {
+    margin: 0;
+    padding: 50px;
+}
+/* END-Base.css */

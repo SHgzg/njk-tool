@@ -1,27 +1,57 @@
 {
-  "name": "data2html",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "njk-tool",
+  "version": "0.0.1",
+  "description": "nunjucks no JavaScript 模板工具，兼容jinja",
+  "main": "dist/bundle/app.min.cjs",
+  "module": "dist/bundle/app.min.js",
+  "exports": {
+    ".": {
+      "require": "./dist/bundle/app.min.cjs",
+      "import": "./dist/bundle/app.min.js"
+    }
+  },
+  "author": "zggong",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SHgzg/njk-tool.git"
+  },
+  "type": "module",
+  "peerDependencies": {
+    "nunjucks": "^3.2.4"
+  },
+  "files": [
+    "dist/bundle",
+    "LICENSE",
+    "README.md"
+  ],
   "scripts": {
-    "build": "node ./build.js",
+    "build": "rollup -c",
     "prestart": "node ./build.js",
-    "start": "node ./dist/server/index.js",
     "dev": "npx tsc && node ./dist/dev/main.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "nunjucks",
+    "template"
+  ],
   "packageManager": "pnpm@10.9.0",
   "dependencies": {
-    "chokidar": "^4.0.3",
+    "chokidar": "3.6.0",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
     "nunjucks": "^3.2.4"
   },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^28.0.6",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^16.0.1",
+    "@rollup/plugin-typescript": "^12.1.4",
     "@types/express": "^5.0.2",
     "@types/node": "^22.15.30",
-    "@types/nunjucks": "^3.2.6"
+    "@types/nunjucks": "^3.2.6",
+    "rollup": "^4.45.1",
+    "rollup-plugin-copy": "^3.5.0",
+    "tslib": "^2.8.1",
+    "typescript": "^5.8.3"
   }
 }
