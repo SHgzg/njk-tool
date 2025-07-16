@@ -1,7 +1,9 @@
 import { readFileSync } from "node:fs";
 import nunjucks from "nunjucks";
 import { ConfItem, StyleLoader, StyleLoadOptions, TagType } from "./type";
-const externalTemplatesDir = `${process.cwd()}/src`;
+import { join } from "node:path";
+import { fileURLToPath } from "node:url";
+const externalTemplatesDir = fileURLToPath(new URL("../bundle/src",`${import.meta.url}`));
 nunjucks.configure(externalTemplatesDir, {
     autoescape: true,
     noCache: true
@@ -14,8 +16,12 @@ interface Options {
     asyncLoad?: boolean
 }
 
-const BASE_STYLE_PATH = `${process.cwd()}/src/base.style`;
-const TEMPLATES_DIR = `index.html`;
+const BASE_STYLE_PATH = join(externalTemplatesDir,"base.style");
+const TEMPLATES_DIR = join(externalTemplatesDir,"index.html");
+console.log({externalTemplatesDir});
+console.log({BASE_STYLE_PATH});
+console.log({TEMPLATES_DIR});
+
 const loadStyle = async (basePath: string): Promise<string> => {
     try {
         return await import("fs/promises").then(({ readFile }) =>
@@ -99,7 +105,7 @@ export const njkRenderSync = (config: ConfItem | ConfItem[], options: Options = 
         ? processConfig(config, cssUrl as string[])
         : processConfig([config], cssUrl as string[]);
 
-    const html = nunjucks.render(templateDir, {
+    const html = nunjucks.render('index.html', {
         ctx: processedConfig,
     });
     return getStyleContent({ isAsync: true }) + html
