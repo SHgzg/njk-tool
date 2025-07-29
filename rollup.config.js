@@ -18,7 +18,7 @@ const plugins = [
     copy({
         targets: [
             { src: 'src/index.html', dest: 'dist/bundle/src' },
-            { src: 'src/base.style', dest: 'dist/bundle/src' },
+            { src: 'src/base.style', dest: 'dist/bundle/src' }
         ]
     })
 ]
