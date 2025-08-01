@@ -44,10 +44,12 @@ h1::before {
 
 h1::before {
   left: -26px;
+  top: 5px;
 }
 
 h2::before {
   left: -18px;
+  top: 5px;
 }
 
 h1:hover::before,
@@ -66,4 +68,8 @@ h2:hover::before {
   font-size: var(--font-size);
   padding: 8px 30px;
   margin-bottom: 20px;
+}
+
+.title-center {
+  text-align: center;
 }

@@ -1,0 +1,73 @@
+    .collapsible-container {
+      --margin: 36px 0 20px;
+      width: 100%;
+      overflow: hidden;
+      margin: var(--margin);
+    }
+
+    .collapsible-input {
+      display: none;
+    }
+
+    .content-title:hover {
+      color: #409EFF;
+    }
+
+    .collapsible-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .collapsible-label:hover {
+      color: #409EFF;
+    }
+
+    .collapsible-input:checked~.collapsible-arrow {
+      transform: rotate(90deg);
+    }
+
+    .collapsible-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s cubic-bezier(0, 1, 0, 1) 0.3s ease;
+    }
+
+    .collapsible-hover-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s cubic-bezier(0, 1, 0, 1) 0.3s ease;
+    }
+
+    .collapsible-container:hover>.collapsible-hover-content {
+      max-height: 500px;
+    }
+
+    .collapsible-input:checked~.collapsible-content {
+      max-height: 500px;
+      /* 根据内容调整 */
+    }
+
+    .title-tag,
+    .title-tag-small {
+      align-items: center;
+      margin-left: 4px;
+      border-radius: 4px;
+      color: white;
+      background-color: #2196F3
+    }
+
+    .title-tag-titile-container{
+      display: flex;
+      align-items: center
+    }
+    .title-tag-small {
+      font-size: 10px;
+      padding: 2px 8px;
+    }
+
+    .title-tag {
+      font-size: 10px;
+      padding: 6px 10px;
+    }

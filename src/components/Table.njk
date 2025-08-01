@@ -1,3 +1,12 @@
+{% macro td_default(ctx) %}
+    {% if ctx.text %}
+        {% set text = ctx.text %}
+    {% else %}
+        {% set text = ctx %}
+    {% endif %}
+    <td class="default-cell">{{ text | replace("false", "❌") | replace("true", "✔️") }}</td>
+{% endmacro %}
+
 {% macro table_default(ctx) %}
     {% if ctx.columns %}
         {% set columns = ctx.columns %}
@@ -28,11 +37,11 @@
                 <tr class="default-row">
                     {% if ctx.data %}
                         {% for column in columns %}
-                            <td class="default-cell">{{ row[column] | replace("false", "❌") | replace("true", "✔️") }}</td>
+                            {{ td_default(row[column]) }}
                         {% endfor %}
                     {% else %}
                         {% for value in row %}
-                            <td class="default-cell">{{ value | replace("false", "❌") | replace("true", "✔️") }}</td>
+                            {{ td_default(value) }}
                         {% endfor %}
                     {% endif %}
                 </tr>

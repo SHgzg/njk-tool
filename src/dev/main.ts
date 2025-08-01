@@ -1,7 +1,6 @@
 
 
 import express from "express"
-import { readFileSync } from "fs";
 import nunjucks from "nunjucks";
 import { addHandler, changeHandler, unlinkHandler, watcher } from "./hook.js";
 import { useMockData } from "./utils.js";
@@ -28,15 +27,18 @@ app.listen(port, () => {
     console.log(`Templates 开发服务器已启动 ${port}`);
 });
 
-app.get('/example/:file', (req, res) => {
+app.get('/example/:file', async (req, res) => {
     const { file } = req.params
     const mockData = useMockData({ path: `${process.cwd()}/src/examples/${file}.json` })
-    const html = nunjucks.render(`index.html`, { ctx: mockData })
-    const css = getBaseCss()
-    res.send(html + css)
-})
+    const { templateText } = await import("../template.dist.js?" + Date.now() as any)
+    // console.log(templateText);
 
-function getBaseCss() {
-    const css = readFileSync(`${process.cwd()}/src/base.style`, 'utf8')
-    return `<style>${css}</style>`
-}
+    const { styleText } = await import("../style.dist.js?" + Date.now() as any)
+    let html = "<h1>渲染失败</h1>"
+    try {
+        html = nunjucks.renderString(templateText, { ctx: mockData })
+    } catch (error) {
+        console.log(error);
+    }
+    res.send(styleText + html)
+})

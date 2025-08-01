@@ -1,0 +1,46 @@
+{% macro use_tag(ctx) %}
+  {% set tagClass = "smart-tag" %}
+  {% set defaultColor = "#4CAF50" %}
+  {% set defaultSize = "medium" %}
+  
+  {% set finalColor = defaultColor %}
+  {% set finalSize = defaultSize %}
+
+  <span class="{{ tagClass }} {{ finalSize }}" style="background-color: {{ finalColor }};">
+    {{ ctx.text }}
+  </span>
+
+  <style>
+    .smart-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 12px;
+      border-radius: 4px;
+      font-family: Arial, sans-serif;
+      color: white;
+      white-space: nowrap;
+      transition: all 0.3s ease;
+    }
+
+    /* 尺寸控制 */
+    .smart-tag.small {
+      font-size: 12px;
+      padding: 2px 8px;
+    }
+    
+    .smart-tag.medium {
+      font-size: 14px;
+      padding: 4px 12px;
+    }
+    
+    .smart-tag.large {
+      font-size: 16px;
+      padding: 6px 16px;
+    }
+
+    /* 颜色扩展支持 */
+    .smart-tag.blue { background-color: #2196F3 !important; }
+    .smart-tag.red { background-color: #f44336 !important; }
+    .smart-tag.green { background-color: #4CAF50 !important; }
+  </style>
+{% endmacro %}

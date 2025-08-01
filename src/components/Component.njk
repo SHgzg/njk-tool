@@ -17,6 +17,12 @@
         {{ use_date(ctx) }}
     {% elif ctx.tag == "checker" %}
         {{ use_checker(ctx) }}
+    {% elif ctx.tag == "divider" %}
+        {{ use_divider(ctx) }}
+    {% elif ctx.tag == "tag" %}
+        {{ use_tag(ctx) }}
+    {% elif ctx.tag == "title_content" %}
+        {{ use_content_title(ctx) }}
     {% else %}
         {{ title_default(ctx) }}
     {% endif %}

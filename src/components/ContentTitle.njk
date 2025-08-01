@@ -1,0 +1,61 @@
+{% macro h3_handler(ctx) %}
+    <div class="title-tag-titile-container">
+  {% if ctx.h3 %}
+      <h3 style="margin: 0;" class="content-title">{{ ctx.title }}</h3>
+  {% else %}
+      <h2 style="margin: 0;" class="content-title">{{ ctx.title }}</h3>
+  {% endif %}
+      <span class="title-tag-small">注释</span>
+    </div>
+{% endmacro %}
+{% macro content_title_click(ctx) %}
+  <div class="collapsible-container">
+    <input type="checkbox" id="{{ ctx.title }}" class="collapsible-input" hidden>
+      <label for="{{ ctx.title }}" class="collapsible-label">
+        {{ h3_handler(ctx) }}
+      </label>
+      <div class="collapsible-content">
+        {{ use_block(ctx) }}
+      </div>
+    </div>
+  {% endmacro %}
+  {% macro content_title_hover(ctx) %}
+    <div class="collapsible-container">
+      <div class="collapsible-label">
+        {{ h3_handler(ctx) }}
+      </div>
+      <div class="collapsible-hover-content">
+        {{ use_block(ctx) }}
+      </div>
+    </div>
+  {% endmacro %}
+  {% macro content_title_remain(ctx) %}
+    <div class="collapsible-container">
+      {{ h3_handler(ctx) }}
+      <div>
+        {{ use_block(ctx) }}
+      </div>
+    </div>
+  {% endmacro %}
+  {% macro pick_content_title(ctx) %}
+    {% if ctx.hover %}
+      {{ content_title_hover(ctx) }}
+    {% elif ctx.remain %}
+      {{ content_title_remain(ctx) }}
+    {% else %}
+      {{ content_title_click(ctx) }}
+    {% endif %}
+  {% endmacro %}
+  {% macro use_content_title(ctx) %}
+    {% if ctx.type == "h3" or ctx.type == "hover_h3" or ctx.type == "remain_h3" %}
+      {% set h3 = true %}
+    {% endif %}
+    {% if ctx.type == "hover_h3" or ctx.type == "hover" %}
+      {% set hover = true %}
+    {% endif %}
+    {% if ctx.type == "remain_h3" or ctx.type == "remain" %}
+      {% set remain = true %}
+    {% endif %}
+    {% set param = {title:ctx.title, text:ctx.text, h3:h3, hover:hover, remain:remain} %}
+    {{ pick_content_title(param) }}
+  {% endmacro %}

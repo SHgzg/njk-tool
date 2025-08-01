@@ -1,0 +1,7 @@
+.divider-base {
+    border: none;
+    height: 1px;
+    background: #e0e0e0;
+    background-size: 100% 100%;
+    margin: 20px 0;
+}

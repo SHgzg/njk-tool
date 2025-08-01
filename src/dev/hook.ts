@@ -1,6 +1,7 @@
 import { watch } from "chokidar";
 import { readFileSync, writeFileSync } from "node:fs";
 import { relative } from "node:path";
+import { styleStringWrapper, templateStringWrapper } from "./utils.js";
 
 
 const TARGET_PATH = `${process.cwd()}/src`
@@ -78,7 +79,7 @@ class StyleTool {
     constructor(path: string) {
         this.relativePath = getRelativePath(path)
         this.name = splitPath(this.relativePath)
-        this.regexp = new RegExp(`<\!--\\s*${this.name}\\s*-->(.*?)<\!--\\s*\/\\s*${this.name}\\s*-->`, "s");
+        this.regexp = new RegExp(`\\/\\*\\s*${this.name}\\s*\\*\\/([\\s\\S]*?)\\/\\*\\s*END-${this.name}\\s*\\*\\/`, "s");
         this.contentStr = this.init(path)
     }
 
@@ -99,7 +100,8 @@ class StyleTool {
     }
 
     isMatch(target: Template) {
-        return target.template.match(this.regexp)
+        
+        return target.style.match(this.regexp)
     }
 
     update(target: Template) {
@@ -118,10 +120,12 @@ class StyleTool {
 }
 
 export class Template {
-    template_root_path = `${process.cwd()}/src/index.html`;
-    style_root_path = `${process.cwd()}/src/base.style`
+    template_root_path = `${process.cwd()}/src/template.dist.ts`;
+    style_root_path = `${process.cwd()}/src/style.dist.ts`
     sortComp = [
         "Text.njk",
+        "Divider.njk",
+        "Tag.njk",
         "Title.njk",
         "Notice.njk",
         "Block.njk",
@@ -129,6 +133,7 @@ export class Template {
         "Table.njk",
         "SideBar.njk",
         "Tab.njk",
+        "ContentTitle.njk",
         "Component.njk",
     ]
     sortCss = [
@@ -177,6 +182,10 @@ export class Template {
         this.styleMap.set(name, str)
     }
 
+    wrapper(str:string,pre="",after=""){
+        return pre + str + after
+    }
+
     compileComponent() {
         const getNum = ([k, v]: [string, string]) => this.sortComp.findIndex(key => key === k) || 999
         const res = Array.from(this.componentsMap)
@@ -185,7 +194,7 @@ export class Template {
             })
             .map(([k, v]) => v)
             .join("\n")
-        return res
+        return templateStringWrapper(res)
     }
 
     compileStyle() {
@@ -198,7 +207,7 @@ export class Template {
                 return v
             })
             .join("\n")
-        return res
+        return styleStringWrapper(res)
     }
 
     buildComponent() {
