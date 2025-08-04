@@ -382,7 +382,7 @@ border-top: none;
 /* Base.css */
 body {
 margin: 0;
-padding: 0px 3rem;
+padding: 0 0;
 font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 a {
