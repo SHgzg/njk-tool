@@ -155,10 +155,10 @@ padding: 6px 16px;
 <!-- /Block.njk -->
 <!-- Date.njk -->
 {% macro use_date(ctx) %}
-<div class="center-info-box"><span style="font-weight:800;">Date：</span>{{ ctx.text}}</div>
+<div class="center-info-box"><span style="font-weight:800;color:#606266;">Date：</span>{{ ctx.text}}</div>
 {% endmacro %}
 {% macro use_checker(ctx) %}
-<div class="center-info-box"><span style="font-weight:800;">Checker：</span>{{ ctx.text}}</div>
+<div class="center-info-box"><span style="font-weight:800;color:#606266;">Checker：</span>{{ ctx.text}}</div>
 {% endmacro %}
 <!-- /Date.njk -->
 <!-- Table.njk -->
