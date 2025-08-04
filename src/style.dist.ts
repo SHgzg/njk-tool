@@ -382,14 +382,19 @@ border-top: none;
 /* Base.css */
 body {
 margin: 0;
-padding: 0 0;
+padding: 0;
 font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 a {
 text-decoration: none;
 }
-a:hover{
+a:hover {
 color: #409EFF;
+}
+.email-main-container {
+margin: 0;
+min-width: 1000px;
+padding: 0 5rem;
 }
 /* END-Base.css */
 </style>`

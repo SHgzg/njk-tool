@@ -353,7 +353,9 @@ display: block;
 {% endfor %}
 {% endif %}
 {% endmacro %}
+<div class="email-main-container">
 {{ use_component(ctx) }}
+</div>
 <!-- /Component.njk -->
 <!-- Text.njk -->
 {% macro text_default(ctx) %}
