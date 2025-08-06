@@ -4,6 +4,9 @@ body {
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 
+/* PC端样式 */
+
+
 a {
     text-decoration: none;
 }
@@ -16,4 +19,11 @@ a:hover {
     margin: 0;
     min-width: 1000px;
     padding: 0 5rem;
+}
+
+:root {
+    --njk-title-color: #606266;
+    --njk-title-align: left;
+    --njk-title-position: relative;
+    --njk-title-margin: 36px 0 20px;
 }

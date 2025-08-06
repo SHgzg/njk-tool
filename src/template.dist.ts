@@ -102,27 +102,28 @@ padding: 6px 16px;
 <h1 style="text-align: center">{{ ctx.text }}</h1>
 {% endmacro %}
 {% macro title_h1(ctx) %}
-<h1 id="{{ ctx.text }}" style="{{ ctx.style }}">
+<h1 class="njk-title-h1" id="{{ ctx.text }}" style="{{ ctx.style }}">
 {{ ctx.text }}
 </h1>
 {% endmacro %}
 {% macro title_h2(ctx) %}
-<h2 id="{{ ctx.text }}" class="" style="{{ ctx.style }}">
+<h2 class="njk-title-h2" id="{{ ctx.text }}" class="" style="{{ ctx.style }}">
 {{ ctx.text }}
 </h2>
 {% endmacro %}
 {% macro title_h3(ctx) %}
-<h3 id="{{ ctx.text }}" class="" style="{{ ctx.style }}">
+<h3 class="njk-title-h3" id="{{ ctx.text }}" class="" style="{{ ctx.style }}">
 {{ ctx.text }}
 </h3>
 {% endmacro %}
 {% macro title_table_default(ctx) %}
-<h3 id="{{ ctx.text }}" class="title_table_default" style="{{ ctx.style }}">
+<h3 class="njk-title-h3" id="{{ ctx.text }}" class="title_table_default" style="{{ ctx.style }}">
 {{ ctx.text }}
 </h3>
 {% endmacro %}
 {% macro use_title(ctx) %}
 {% if ctx.type == "h1" %}
+{{ title_h1(ctx) }}
 {{ title_h1(ctx) }}
 {% elif ctx.type == "h2" %}
 {{ title_h2(ctx) }}
@@ -155,10 +156,10 @@ padding: 6px 16px;
 <!-- /Block.njk -->
 <!-- Date.njk -->
 {% macro use_date(ctx) %}
-<div class="center-info-box"><span style="font-weight:800;color:#606266;">Date：</span>{{ ctx.text}}</div>
+<div class="center-info-box"><span style="font-weight:bolder;color:#606266;">Date：</span>{{ ctx.text}}</div>
 {% endmacro %}
 {% macro use_checker(ctx) %}
-<div class="center-info-box"><span style="font-weight:800;color:#606266;">Checker：</span>{{ ctx.text}}</div>
+<div class="center-info-box"><span style="font-weight:bolder;color:#606266;">Checker：</span>{{ ctx.text}}</div>
 {% endmacro %}
 <!-- /Date.njk -->
 <!-- Table.njk -->
@@ -187,7 +188,7 @@ padding: 6px 16px;
 {% set title = {text:ctx.title} %}
 {{ title_h2(title) }}
 {% endif %}
-<table class="default-table">
+<table class="my-daframe-default">
 <thead class="thead-light">
 <tr>
 {% for column in columns %}
@@ -353,9 +354,11 @@ display: block;
 {% endfor %}
 {% endif %}
 {% endmacro %}
-<div class="email-main-container">
+<body style="margin: 0; padding: 0;overflow: auto;">
+<div class="email-main-container" style="margin: 0 auto; padding: 0 3rem;box-sizing: border-box;width:2000px;">
 {{ use_component(ctx) }}
 </div>
+</body>
 <!-- /Component.njk -->
 <!-- Text.njk -->
 {% macro text_default(ctx) %}
