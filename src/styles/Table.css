@@ -10,6 +10,7 @@
 }
 
 .thead-light th {
+  white-space: nowrap;
   background-color: #f5f7fa;
   color: #333333;
   font-weight: 600;

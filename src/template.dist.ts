@@ -102,28 +102,27 @@ padding: 6px 16px;
 <h1 style="text-align: center">{{ ctx.text }}</h1>
 {% endmacro %}
 {% macro title_h1(ctx) %}
-<h1 class="njk-title-h1" id="{{ ctx.text }}" style="{{ ctx.style }}">
+<div class="njk-title-h1" id="{{ ctx.text }}" style="{{ ctx.style }}">
 {{ ctx.text }}
-</h1>
+</div>
 {% endmacro %}
 {% macro title_h2(ctx) %}
-<h2 class="njk-title-h2" id="{{ ctx.text }}" class="" style="{{ ctx.style }}">
+<div class="njk-title-h2" id="{{ ctx.text }}" class="" style="{{ ctx.style }}">
 {{ ctx.text }}
-</h2>
+</div>
 {% endmacro %}
 {% macro title_h3(ctx) %}
-<h3 class="njk-title-h3" id="{{ ctx.text }}" class="" style="{{ ctx.style }}">
+<div class="njk-title-h3" id="{{ ctx.text }}" class="" style="{{ ctx.style }}">
 {{ ctx.text }}
-</h3>
+</div>
 {% endmacro %}
 {% macro title_table_default(ctx) %}
-<h3 class="njk-title-h3" id="{{ ctx.text }}" class="title_table_default" style="{{ ctx.style }}">
+<div class="njk-title-h3" id="{{ ctx.text }}">
 {{ ctx.text }}
-</h3>
+</div>
 {% endmacro %}
 {% macro use_title(ctx) %}
 {% if ctx.type == "h1" %}
-{{ title_h1(ctx) }}
 {{ title_h1(ctx) }}
 {% elif ctx.type == "h2" %}
 {{ title_h2(ctx) }}
@@ -169,7 +168,7 @@ padding: 6px 16px;
 {% else %}
 {% set text = ctx %}
 {% endif %}
-<td class="default-cell">{{ text | replace("false", "❌") | replace("true", "✔️") }}</td>
+<td class="default-cell">{{ text | replace("false", "❌")| replace("False", "❌")| replace("True", "✔️") | replace("true", "✔️") }}</td>
 {% endmacro %}
 {% macro table_default(ctx) %}
 {% if ctx.columns %}
@@ -214,8 +213,9 @@ padding: 6px 16px;
 </table>
 {% endmacro %}
 {% macro use_table(ctx) %}
-{% if ctx.type == "h1" %}
-{{ title_h1(ctx) }}
+{% if ctx.title %}
+{{ title_table_default(ctx.title) }}
+{{ table_default(ctx) }}
 {% else %}
 {{ table_default(ctx) }}
 {% endif %}
@@ -354,11 +354,9 @@ display: block;
 {% endfor %}
 {% endif %}
 {% endmacro %}
-<body style="margin: 0; padding: 0;overflow: auto;">
-<div class="email-main-container" style="margin: 0 auto; padding: 0 3rem;box-sizing: border-box;width:2000px;">
+<div style="margin: 0; padding: 0 8px 0 0;">
 {{ use_component(ctx) }}
 </div>
-</body>
 <!-- /Component.njk -->
 <!-- Text.njk -->
 {% macro text_default(ctx) %}

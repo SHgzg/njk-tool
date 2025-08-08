@@ -3,32 +3,31 @@
 {% endmacro %}
 
 {% macro title_h1(ctx) %}
-    <h1 class="njk-title-h1" id="{{ ctx.text }}" style="{{ ctx.style }}">
+    <div class="njk-title-h1" id="{{ ctx.text }}" style="{{ ctx.style }}">
         {{ ctx.text }}
-    </h1>
+    </div>
 {% endmacro %}
 
 {% macro title_h2(ctx) %}
-    <h2 class="njk-title-h2" id="{{ ctx.text }}" class="" style="{{ ctx.style }}">
+    <div class="njk-title-h2" id="{{ ctx.text }}" class="" style="{{ ctx.style }}">
         {{ ctx.text }}
-    </h2>
+    </div>
 {% endmacro %}
 
 {% macro title_h3(ctx) %}
-    <h3 class="njk-title-h3" id="{{ ctx.text }}" class="" style="{{ ctx.style }}">
+    <div class="njk-title-h3" id="{{ ctx.text }}" class="" style="{{ ctx.style }}">
         {{ ctx.text }}
-    </h3>
+    </div>
 {% endmacro %}
 
 {% macro title_table_default(ctx) %}
-    <h3 class="njk-title-h3" id="{{ ctx.text }}" class="title_table_default" style="{{ ctx.style }}">
+    <div class="njk-title-h3" id="{{ ctx.text }}">
         {{ ctx.text }}
-    </h3>
+    </div>
 {% endmacro %}
 
 {% macro use_title(ctx) %}
     {% if ctx.type == "h1" %}
-        {{ title_h1(ctx) }}
         {{ title_h1(ctx) }}
     {% elif ctx.type == "h2" %}
         {{ title_h2(ctx) }}

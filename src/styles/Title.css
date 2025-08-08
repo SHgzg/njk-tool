@@ -1,65 +1,87 @@
 .title-base {
+  --align: left;
+  --text-color: #606266;
   --font-weight: 800;
   --font-size: 18px;
-  color: var(--njk-title-color);
-  text-align: var(--njk-title-align);
+  color: var(--text-color);
+  text-align: var(--align);
   font-weight: var(--font-weight);
   font-size: var(--font-size);
   padding: 8px 30px;
 }
 
 .njk-title-h1 {
+  font-size: 26px;
+  font-weight: bolder;
+  --align: left;
+  --text-color: #606266;
+  --margin: 20px 0 10px;
+  position: relative;
   padding: 0 0 4.8px;
-  position: var(--njk-title-position);
-  margin: var(--njk-title-margin);
-  color: var(--njk-title-color);
-  text-align: var(--njk-title-align);
-  font-size: 2.5rem
+  margin: var(--margin);
+  color: var(--text-color);
+  text-align: var(--align);
 }
 
 .njk-title-h2 {
+  font-size: 24px;
+  font-weight: bolder;
+  --align: left;
+  --text-color: #606266;
+  --margin: 20px 0 10px;
+  position: relative;
   padding: 0 0 4.8px;
-  position: var(--njk-title-position);
-  margin: var(--njk-title-margin);
-  color: var(--njk-title-color);
-  text-align: var(--njk-title-align);
-  font-size: 2rem
-
-}
-
-.njk-title-h3 {
-  padding: 0 0 4.8px;
-  margin: var(--njk-title-margin);
-  position: var(--njk-title-position);
+  margin: var(--margin);
   color: var(--text-color);
-  text-align: var(--njk-title-align);
-  font-size: 1rem
-
+  text-align: var(--align);
 }
 
-.njk-title-h2::before,
+.njk-title-h3{
+  font-size: 20px;
+  --align: left;
+  --text-color: #606266;
+  font-weight: bolder;
+  --margin: 20px 0 10px;
+  position: relative;
+  padding: 0 0 4.8px;
+  margin: var(--margin);
+  color: var(--text-color);
+  text-align: var(--align);
+}
+
+/* .njk-title-h2::before,
 .njk-title-h1::before {
   display: none;
   position: absolute;
-  content: "#";
+  content: "# ";
   color: #007bff;
 }
 
 .njk-title-h1::before {
   left: -26px;
-  top: 5px;
 }
 
 .njk-title-h2::before {
   left: -18px;
-  top: 5px;
 }
 
 .njk-title-h1:hover::before,
 .njk-title-h2:hover::before {
   display: inline-block;
-}
+} */
 
+.title-main {
+  --align: left;
+  --text-color: black;
+  --font-weight: 800;
+  --font-size: 28px;
+  color: var(--text-color);
+  text-align: var(--align);
+  font-weight: var(--font-weight);
+  font-size: var(--font-size);
+  padding: 8px 30px;
+  margin-bottom: 20px;
+}
 
 .title-center {
   text-align: center;

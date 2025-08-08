@@ -1,5 +1,9 @@
 [
     {
+        "tag": "width",
+        "width": "5000px"
+    },
+    {
         "tag": "title",
         "type": "h1",
         "text": "Tap 报告生成模板测试"

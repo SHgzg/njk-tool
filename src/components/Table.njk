@@ -4,7 +4,7 @@
     {% else %}
         {% set text = ctx %}
     {% endif %}
-    <td class="default-cell">{{ text | replace("false", "❌") | replace("true", "✔️") }}</td>
+    <td class="default-cell">{{ text | replace("false", "❌")| replace("False", "❌")| replace("True", "✔️") | replace("true", "✔️") }}</td>
 {% endmacro %}
 
 {% macro table_default(ctx) %}
@@ -50,8 +50,9 @@
     </table>
 {% endmacro %}
 {% macro use_table(ctx) %}
-    {% if ctx.type == "h1" %}
-        {{ title_h1(ctx) }}
+    {% if ctx.title %}
+        {{ title_table_default(ctx.title) }}
+        {{ table_default(ctx) }}
     {% else %}
         {{ table_default(ctx) }}
     {% endif %}
