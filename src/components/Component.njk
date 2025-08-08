@@ -29,14 +29,19 @@
 {% endmacro %}
 {% macro use_component(ctx) %}
     {% if ctx.tag %}
+        {{ use_comp_start() }}
         {{ pick_component(ctx) }}
+        {{ use_comp_end() }}
     {% else %}
         {% for i in ctx %}
-            {{ pick_component(i) }}
+            {% if i.tag != 'table' %}
+                {{ use_comp_start() }}
+                {{ pick_component(i) }}
+                {{ use_comp_end() }}
+            {% else %}
+                {{ pick_component(i) }}
+            {% endif %}
         {% endfor %}
     {% endif %}
 {% endmacro %}
-
-<div style="margin: 0; padding: 0 8px 0 0;">
-        {{ use_component(ctx) }}
-</div>
+{{ use_component(ctx) }}</tr>

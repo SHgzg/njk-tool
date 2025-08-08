@@ -22,8 +22,9 @@ a:hover {
 }
 
 :root {
-    --njk-title-color: #606266;
-    --njk-title-align: left;
+    --njk-title-color: black;
+    --njk-title-align: center;
     --njk-title-position: relative;
     --njk-title-margin: 36px 0 20px;
+    --njk-table-margin: 0 auto 20px;
 }

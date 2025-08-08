@@ -1,31 +1,35 @@
+{% macro use_table_wrapper(macro) %}
+    <table style="width: 100%;table-layout: auto">
+        <th>
+            <td>{{ macro }}</td>
+        </th>
+    </table>
+{% endmacro %}
 {% macro title_default(ctx) %}
-    <h1 style="text-align: center">{{ ctx.text }}</h1>
+    <h1 class="title-base">{{ ctx.text }}</h1>
 {% endmacro %}
-
 {% macro title_h1(ctx) %}
-    <div class="njk-title-h1" id="{{ ctx.text }}" style="{{ ctx.style }}">
+    <h1 class="title-base njk-title-h1" id="{{ ctx.text }}" style="{{ ctx.style }}">
         {{ ctx.text }}
-    </div>
+    </h1>
 {% endmacro %}
-
 {% macro title_h2(ctx) %}
-    <div class="njk-title-h2" id="{{ ctx.text }}" class="" style="{{ ctx.style }}">
+    <h2 class="title-base njk-title-h2" id="{{ ctx.text }}" class="" style="{{ ctx.style }}">
         {{ ctx.text }}
-    </div>
+    </h2>
 {% endmacro %}
-
 {% macro title_h3(ctx) %}
-    <div class="njk-title-h3" id="{{ ctx.text }}" class="" style="{{ ctx.style }}">
+    <h3 class="title-base njk-title-h3" id="{{ ctx.text }}" class="" style="{{ ctx.style }}">
         {{ ctx.text }}
-    </div>
+    </h3>
 {% endmacro %}
-
 {% macro title_table_default(ctx) %}
-    <div class="njk-title-h3" id="{{ ctx.text }}">
+    {{ use_comp_start() }}
+    <h3 class="title-base njk-title-h3" id="{{ ctx.text }}">
         {{ ctx.text }}
-    </div>
+    </h3>
+    {{ use_comp_end() }}
 {% endmacro %}
-
 {% macro use_title(ctx) %}
     {% if ctx.type == "h1" %}
         {{ title_h1(ctx) }}

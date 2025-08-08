@@ -1,51 +1,12 @@
 [
     {
-        "tag": "width",
-        "width": "5000px"
-    },
-    {
         "tag": "title",
         "type": "h1",
-        "text": "Tap 报告生成模板测试"
-    },
-    {
-        "tag": "date",
-        "text": "20250715"
+        "text": "2025-07-15 Tap 报告生成模板测试"
     },
     {
         "tag": "checker",
         "text": "龚兆国"
-    },
-    {
-        "tag": "title",
-        "type": "h1",
-        "text": "内容一级标题测试"
-    },
-    {
-        "tag": "title_content",
-        "title": "重要说明",
-        "text": "这里是展开显示的注释内容..."
-    },
-    {
-        "tag": "title_content",
-        "type": "hover_h3",
-        "title": "重要说明2",
-        "text": "这里是展开显示的注释内容..."
-    },
-    {
-        "tag": "title_content",
-        "type": "remain_h3",
-        "title": "重要说明3",
-        "text": "这里是展开显示的注释内容..."
-    },
-    {
-        "tag": "title",
-        "type": "h2",
-        "text": "内容二级标题自定义测试",
-        "style": "--align: left; --text-color: #409EFF;"
-    },
-    {
-        "tag": "divider"
     },
     {
         "tag": "table",

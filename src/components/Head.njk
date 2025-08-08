@@ -15,3 +15,13 @@
   {% endfor %}
   {% endif %}
 {% endmacro %}
+{% macro use_comp_start(ctx) %}
+    <table style="width: 100%;table-layout: auto">
+        <tr>
+            <td>
+            {% endmacro %}
+            {% macro use_comp_end(ctx) %}
+            </td>
+        </tr>
+    </table>
+{% endmacro %}

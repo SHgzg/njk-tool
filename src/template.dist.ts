@@ -16,6 +16,16 @@ export const templateText = `<!-- Head.njk -->
 {% endfor %}
 {% endif %}
 {% endmacro %}
+{% macro use_comp_start(ctx) %}
+<table style="width: 100%;table-layout: auto">
+<tr>
+<td>
+{% endmacro %}
+{% macro use_comp_end(ctx) %}
+</td>
+</tr>
+</table>
+{% endmacro %}
 <!-- /Head.njk -->
 <!-- TOC.njk -->
 {% macro use_toc(ctx) %}
@@ -98,28 +108,37 @@ padding: 6px 16px;
 {% endmacro %}
 <!-- /Tag.njk -->
 <!-- Title.njk -->
+{% macro use_table_wrapper(macro) %}
+<table style="width: 100%;table-layout: auto">
+<th>
+<td>{{ macro }}</td>
+</th>
+</table>
+{% endmacro %}
 {% macro title_default(ctx) %}
-<h1 style="text-align: center">{{ ctx.text }}</h1>
+<h1 class="title-base">{{ ctx.text }}</h1>
 {% endmacro %}
 {% macro title_h1(ctx) %}
-<div class="njk-title-h1" id="{{ ctx.text }}" style="{{ ctx.style }}">
+<h1 class="title-base njk-title-h1" id="{{ ctx.text }}" style="{{ ctx.style }}">
 {{ ctx.text }}
-</div>
+</h1>
 {% endmacro %}
 {% macro title_h2(ctx) %}
-<div class="njk-title-h2" id="{{ ctx.text }}" class="" style="{{ ctx.style }}">
+<h2 class="title-base njk-title-h2" id="{{ ctx.text }}" class="" style="{{ ctx.style }}">
 {{ ctx.text }}
-</div>
+</h2>
 {% endmacro %}
 {% macro title_h3(ctx) %}
-<div class="njk-title-h3" id="{{ ctx.text }}" class="" style="{{ ctx.style }}">
+<h3 class="title-base njk-title-h3" id="{{ ctx.text }}" class="" style="{{ ctx.style }}">
 {{ ctx.text }}
-</div>
+</h3>
 {% endmacro %}
 {% macro title_table_default(ctx) %}
-<div class="njk-title-h3" id="{{ ctx.text }}">
+{{ use_comp_start() }}
+<h3 class="title-base njk-title-h3" id="{{ ctx.text }}">
 {{ ctx.text }}
-</div>
+</h3>
+{{ use_comp_end() }}
 {% endmacro %}
 {% macro use_title(ctx) %}
 {% if ctx.type == "h1" %}
@@ -155,10 +174,10 @@ padding: 6px 16px;
 <!-- /Block.njk -->
 <!-- Date.njk -->
 {% macro use_date(ctx) %}
-<div class="center-info-box"><span style="font-weight:bolder;color:#606266;">Date：</span>{{ ctx.text}}</div>
+<div class="center-info-box" style="text-align: center;"><span style="font-weight:bolder;">Date：</span>{{ ctx.text}}</div>
 {% endmacro %}
 {% macro use_checker(ctx) %}
-<div class="center-info-box"><span style="font-weight:bolder;color:#606266;">Checker：</span>{{ ctx.text}}</div>
+<div class="center-info-box" style="text-align: center;"><span style="font-weight:bolder;">Checker：</span>{{ ctx.text}}</div>
 {% endmacro %}
 <!-- /Date.njk -->
 <!-- Table.njk -->
@@ -185,7 +204,9 @@ padding: 6px 16px;
 {% endif %}
 {% if ctx.title %}
 {% set title = {text:ctx.title} %}
+{{ use_comp_start() }}
 {{ title_h2(title) }}
+{{ use_comp_end() }}
 {% endif %}
 <table class="my-daframe-default">
 <thead class="thead-light">
@@ -214,7 +235,6 @@ padding: 6px 16px;
 {% endmacro %}
 {% macro use_table(ctx) %}
 {% if ctx.title %}
-{{ title_table_default(ctx.title) }}
 {{ table_default(ctx) }}
 {% else %}
 {{ table_default(ctx) }}
@@ -347,16 +367,22 @@ display: block;
 {% endmacro %}
 {% macro use_component(ctx) %}
 {% if ctx.tag %}
+{{ use_comp_start() }}
 {{ pick_component(ctx) }}
+{{ use_comp_end() }}
 {% else %}
 {% for i in ctx %}
+{% if i.tag != 'table' %}
+{{ use_comp_start() }}
 {{ pick_component(i) }}
+{{ use_comp_end() }}
+{% else %}
+{{ pick_component(i) }}
+{% endif %}
 {% endfor %}
 {% endif %}
 {% endmacro %}
-<div style="margin: 0; padding: 0 8px 0 0;">
-{{ use_component(ctx) }}
-</div>
+{{ use_component(ctx) }}</tr>
 <!-- /Component.njk -->
 <!-- Text.njk -->
 {% macro text_default(ctx) %}

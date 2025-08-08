@@ -1,23 +1,42 @@
 .my-daframe-default {
-  margin: 0;
-  width: 80%;
+  margin: 0 auto 20px;
   border-collapse: collapse;
-  border-radius: 15px;
+  border: 2px solid black;
   /* 合并边框 */
   font-family: Arial, Helvetica, sans-serif;
   font-size: 14px;
   color: #444444;
 }
 
+.my-daframe-default a {
+  text-decoration: none !important;
+  color: #444444 !important;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
+
 .thead-light th {
   white-space: nowrap;
-  background-color: #f5f7fa;
+  background-color: #e0e3e8;
+  /* background-color: #f5f7fa; */
   color: #333333;
   font-weight: 600;
   padding: 12px 16px;
   text-align: left;
-  border: 1px solid #e1e4e8;
+  border-right: 1px solid rgba(19, 18, 18, 0.6);
+  border-bottom: 2px solid black;
   font-size: 16px;
+}
+
+.my-daframe-default tr {
+  border-bottom: 1px solid black;
+}
+
+.my-daframe-default td {
+  border-right: 1px solid rgba(19, 18, 18, 0.6);
+  /* color: #333333; */
+  /* font-weight: 600; */
+  /* text-align: left; */
 }
 
 .default-row {
@@ -33,7 +52,7 @@
 
 .default-cell {
   padding: 10px 16px;
-  border: 1px solid #e1e4e8;
+  /* border: 1px solid #e1e4e8; */
   font-weight: 400;
   font-size: 14px;
   color: #444;

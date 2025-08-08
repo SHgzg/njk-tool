@@ -6,7 +6,6 @@
     {% endif %}
     <td class="default-cell">{{ text | replace("false", "❌")| replace("False", "❌")| replace("True", "✔️") | replace("true", "✔️") }}</td>
 {% endmacro %}
-
 {% macro table_default(ctx) %}
     {% if ctx.columns %}
         {% set columns = ctx.columns %}
@@ -22,7 +21,9 @@
     {% endif %}
     {% if ctx.title %}
         {% set title = {text:ctx.title} %}
+        {{ use_comp_start() }}
         {{ title_h2(title) }}
+        {{ use_comp_end() }}
     {% endif %}
     <table class="my-daframe-default">
         <thead class="thead-light">
@@ -51,7 +52,6 @@
 {% endmacro %}
 {% macro use_table(ctx) %}
     {% if ctx.title %}
-        {{ title_table_default(ctx.title) }}
         {{ table_default(ctx) }}
     {% else %}
         {{ table_default(ctx) }}

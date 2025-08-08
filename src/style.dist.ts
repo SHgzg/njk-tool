@@ -168,51 +168,19 @@ font-size: 0.9rem;
 /* END-Text.css */
 /* Title.css */
 .title-base {
---align: left;
---text-color: #606266;
---font-weight: 800;
---font-size: 18px;
-color: var(--text-color);
-text-align: var(--align);
-font-weight: var(--font-weight);
-font-size: var(--font-size);
-padding: 8px 30px;
+text-align: center;
+font-weight: bolder;
 }
 .njk-title-h1 {
-font-size: 26px;
-font-weight: bolder;
---align: left;
---text-color: #606266;
---margin: 20px 0 10px;
 position: relative;
 padding: 0 0 4.8px;
-margin: var(--margin);
-color: var(--text-color);
-text-align: var(--align);
 }
 .njk-title-h2 {
-font-size: 24px;
-font-weight: bolder;
---align: left;
---text-color: #606266;
---margin: 20px 0 10px;
 position: relative;
-padding: 0 0 4.8px;
-margin: var(--margin);
-color: var(--text-color);
-text-align: var(--align);
 }
-.njk-title-h3{
-font-size: 20px;
---align: left;
---text-color: #606266;
-font-weight: bolder;
---margin: 20px 0 10px;
+.njk-title-h3 {
 position: relative;
-padding: 0 0 4.8px;
-margin: var(--margin);
-color: var(--text-color);
-text-align: var(--align);
+margin-bottom: 10px;
 }
 /* .njk-title-h2::before,
 .njk-title-h1::before {
@@ -231,21 +199,6 @@ left: -18px;
 .njk-title-h2:hover::before {
 display: inline-block;
 } */
-.title-main {
---align: left;
---text-color: black;
---font-weight: 800;
---font-size: 28px;
-color: var(--text-color);
-text-align: var(--align);
-font-weight: var(--font-weight);
-font-size: var(--font-size);
-padding: 8px 30px;
-margin-bottom: 20px;
-}
-.title-center {
-text-align: center;
-}
 /* END-Title.css */
 /* Notice.css */
 /* Notice */
@@ -281,24 +234,40 @@ border-left: 4px solid #f5222d;
 /* END-Notice.css */
 /* Table.css */
 .my-daframe-default {
-margin: 0;
-width: 80%;
+margin: 0 auto 20px;
 border-collapse: collapse;
-border-radius: 15px;
+border: 2px solid black;
 /* 合并边框 */
 font-family: Arial, Helvetica, sans-serif;
 font-size: 14px;
 color: #444444;
 }
+.my-daframe-default a {
+text-decoration: none !important;
+color: #444444 !important;
+font-family: Arial, Helvetica, sans-serif;
+font-size: 14px;
+}
 .thead-light th {
 white-space: nowrap;
-background-color: #f5f7fa;
+background-color: #e0e3e8;
+/* background-color: #f5f7fa; */
 color: #333333;
 font-weight: 600;
 padding: 12px 16px;
 text-align: left;
-border: 1px solid #e1e4e8;
+border-right: 1px solid rgba(19, 18, 18, 0.6);
+border-bottom: 2px solid black;
 font-size: 16px;
+}
+.my-daframe-default tr {
+border-bottom: 1px solid black;
+}
+.my-daframe-default td {
+border-right: 1px solid rgba(19, 18, 18, 0.6);
+/* color: #333333; */
+/* font-weight: 600; */
+/* text-align: left; */
 }
 .default-row {
 border: 1px solid #eee;
@@ -310,7 +279,7 @@ color: rebeccapurple;
 }
 .default-cell {
 padding: 10px 16px;
-border: 1px solid #e1e4e8;
+/* border: 1px solid #e1e4e8; */
 font-weight: 400;
 font-size: 14px;
 color: #444;
@@ -341,6 +310,12 @@ overflow-x: auto;
 }
 /* END-Block.css */
 /* Date.css */
+.center-info-box {
+margin-top: -20px;
+margin-bottom: 20px;
+text-align: center;
+color: black;
+}
 /* END-Date.css */
 /* Tab.css */
 /* Tab 容器 */
@@ -401,10 +376,11 @@ min-width: 1000px;
 padding: 0 5rem;
 }
 :root {
---njk-title-color: #606266;
---njk-title-align: left;
+--njk-title-color: black;
+--njk-title-align: center;
 --njk-title-position: relative;
 --njk-title-margin: 36px 0 20px;
+--njk-table-margin: 0 auto 20px;
 }
 /* END-Base.css */
 </style>`
