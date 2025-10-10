@@ -4,7 +4,7 @@
     {% else %}
         {% set text = ctx %}
     {% endif %}
-    <td class="default-cell">{{ text | replace("false", "❌")| replace("False", "❌")| replace("True", "✔️") | replace("true", "✔️") }}</td>
+    <td class="default-cell">{{ text | replace("false", "❌")| replace("False", "❌")| replace("True", "✔️") | replace("true", "✔️") | replace("Pass", "✔️") | replace("pass", "✔️") }}</td>
 {% endmacro %}
 {% macro table_default(ctx) %}
     {% if ctx.columns %}
