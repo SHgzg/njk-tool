@@ -1,0 +1,60 @@
+[
+  {
+    "tag": "title",
+    "type": "h1",
+    "text": "完整 HTML 文档测试"
+  },
+  {
+    "tag": "date",
+    "text": "2025-01-20"
+  },
+  {
+    "tag": "divider"
+  },
+  {
+    "tag": "title",
+    "type": "h2",
+    "text": "测试 1: 完整 HTML 文档（带 DOCTYPE）"
+  },
+  {
+    "tag": "notice",
+    "type": "warning",
+    "text": "⚠️ 警告：在邮件中嵌入完整 HTML 文档会导致结构问题！"
+  },
+  {
+    "tag": "html",
+    "html": "<!DOCTYPE html><html lang=\"zh-CN\"><head><meta charset=\"UTF-8\"><style>.highlight { background: #ffeb3b; padding: 2px 4px; }</style></head><body><div style=\"padding: 20px; background: #e3f2fd; border-left: 4px solid #2196f3;\"><h3 style=\"margin: 0 0 10px 0; color: #1976d2;\">完整 HTML 文档</h3><p style=\"margin: 0;\">这是一个带 DOCTYPE、head、style 标签的<span class=\"highlight\">完整 HTML 文档</span>。在邮件中可能会出现显示问题。</p></div></body></html>"
+  },
+  {
+    "tag": "title",
+    "type": "h2",
+    "text": "测试 2: 只有 head 和 style（无 body）"
+  },
+  {
+    "tag": "html",
+    "html": "<head><style>.warning-box { background: #fff3cd; padding: 16px; border-left: 4px solid #ffc107; color: #856404; } .warning-title { font-weight: bold; margin-bottom: 8px; }</style></head><div class=\"warning-box\"><div class=\"warning-title\">⚠️ 使用内部样式</div><p style=\"margin: 8px 0 0 0;\">这个示例包含 head 和 style 标签，但没有 body 标签。在某些邮件客户端中，内部样式可能生效。</p></div>"
+  },
+  {
+    "tag": "title",
+    "type": "h2",
+    "text": "测试 3: 只有 style 标签（无 head）"
+  },
+  {
+    "tag": "html",
+    "html": "<style>.success-card { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 24px; border-radius: 8px; text-align: center; } .success-title { font-size: 24px; margin: 0 0 12px 0; } .success-text { font-size: 16px; margin: 0; opacity: 0.9; }</style><div class=\"success-card\"><h2 class=\"success-title\">✓ 成功示例</h2><p class=\"success-text\">使用 style 标签定义内部样式（邮件客户端兼容性有限）</p></div>"
+  },
+  {
+    "tag": "title",
+    "type": "h2",
+    "text": "测试 4: 纯内联样式（推荐）"
+  },
+  {
+    "tag": "html",
+    "html": "<div style=\"padding: 24px; background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); color: white; border-radius: 8px; text-align: center;\"><h2 style=\"margin: 0 0 12px 0; font-size: 24px;\">✓ 推荐做法</h2><p style=\"margin: 0; font-size: 16px; opacity: 0.95;\">完全使用内联样式，兼容性最佳，适用于所有邮件客户端</p></div>"
+  },
+  {
+    "tag": "notice",
+    "type": "error",
+    "text": "结论：完整 HTML 文档会破坏邮件结构，建议只使用 body 内的 HTML 片段，并采用内联样式。"
+  }
+]

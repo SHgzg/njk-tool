@@ -23,6 +23,8 @@
         {{ use_tag(ctx) }}
     {% elif ctx.tag == "title_content" %}
         {{ use_content_title(ctx) }}
+    {% elif ctx.tag == "html" %}
+        {{ use_html(ctx) }}
     {% else %}
         {{ title_default(ctx) }}
     {% endif %}

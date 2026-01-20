@@ -16,18 +16,17 @@
     "url": "https://github.com/SHgzg/njk-tool.git"
   },
   "type": "module",
-  "peerDependencies": {
-    "nunjucks": "^3.2.4"
-  },
   "files": [
     "dist/bundle",
     "LICENSE",
-    "README.md"
+    "README.md",
+    ".env.example"
   ],
   "scripts": {
     "build": "rollup -c && rollup -c rollup.dts.config.js",
     "build:type": "rollup -c rollup.dts.config.js",
-    "dev": "npx tsc && node ./dist/dev/main.js"
+    "dev": "npx tsc && node ./dist/dev/main.js",
+    "predev": "npm run build"
   },
   "keywords": [
     "nunjucks",
@@ -44,7 +43,7 @@
     "@rollup/plugin-node-resolve": "^16.0.1",
     "@rollup/plugin-typescript": "^12.1.4",
     "@types/express": "^5.0.2",
-    "@types/node": "^22.15.30",
+    "@types/node": "^22.19.7",
     "@types/nodemailer": "^6.4.17",
     "@types/nunjucks": "^3.2.6",
     "chokidar": "3.6.0",

@@ -27,6 +27,15 @@ export const templateText = `<!-- Head.njk -->
 </table>
 {% endmacro %}
 <!-- /Head.njk -->
+<!-- Html.njk -->
+{% macro use_html(ctx) %}
+{% if ctx.html %}
+{{ ctx.html | safe }}
+{% elif ctx.code %}
+{{ ctx.code | safe }}
+{% endif %}
+{% endmacro %}
+<!-- /Html.njk -->
 <!-- TOC.njk -->
 {% macro use_toc(ctx) %}
 <div class="article-toc">
@@ -187,7 +196,7 @@ padding: 6px 16px;
 {% else %}
 {% set text = ctx %}
 {% endif %}
-<td class="default-cell">{{ text | replace("false", "❌")| replace("False", "❌")| replace("True", "✔️") | replace("true", "✔️") }}</td>
+<td class="default-cell">{{ text | replace("false", "❌")| replace("False", "❌")| replace("True", "✔️") | replace("true", "✔️") | replace("Pass", "✔️") | replace("pass", "✔️") }}</td>
 {% endmacro %}
 {% macro table_default(ctx) %}
 {% if ctx.columns %}
@@ -361,6 +370,8 @@ display: block;
 {{ use_tag(ctx) }}
 {% elif ctx.tag == "title_content" %}
 {{ use_content_title(ctx) }}
+{% elif ctx.tag == "html" %}
+{{ use_html(ctx) }}
 {% else %}
 {{ title_default(ctx) }}
 {% endif %}

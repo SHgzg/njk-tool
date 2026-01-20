@@ -1,0 +1,72 @@
+[
+  {
+    "tag": "title",
+    "type": "h1",
+    "text": "HTML 组件测试示例"
+  },
+  {
+    "tag": "date",
+    "text": "2025-01-20"
+  },
+  {
+    "tag": "divider"
+  },
+  {
+    "tag": "title",
+    "type": "h2",
+    "text": "1. Embed 模式 - 默认"
+  },
+  {
+    "tag": "html",
+    "type": "embed",
+    "html": "<div style=\"padding: 16px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 8px;\"><h3 style=\"margin: 0 0 8px 0;\">欢迎使用 HTML 组件</h3><p style=\"margin: 0;\">这是一个嵌入的 HTML 内容示例，支持完整的 HTML 和 CSS 样式。</p></div>"
+  },
+  {
+    "tag": "title",
+    "type": "h2",
+    "text": "2. Raw 模式 - 原始 HTML"
+  },
+  {
+    "tag": "html",
+    "type": "raw",
+    "html": "<table style=\"width: 100%; border-collapse: collapse;\"><tr style=\"background: #f0f0f0;\"><th style=\"padding: 12px; border: 1px solid #ddd;\">功能</th><th style=\"padding: 12px; border: 1px solid #ddd;\">说明</th></tr><tr><td style=\"padding: 12px; border: 1px solid #ddd;\"><strong>embed</strong></td><td style=\"padding: 12px; border: 1px solid #ddd;\">嵌入 HTML 代码（默认）</td></tr><tr><td style=\"padding: 12px; border: 1px solid #ddd;\"><strong>raw</strong></td><td style=\"padding: 12px; border: 1px solid #ddd;\">原始 HTML 渲染</td></tr><tr><td style=\"padding: 12px; border: 1px solid #ddd;\"><strong>iframe</strong></td><td style=\"padding: 12px; border: 1px solid #ddd;\">使用 iframe 嵌入外部内容</td></tr></table>"
+  },
+  {
+    "tag": "title",
+    "type": "h2",
+    "text": "3. Iframe 模式 - 外部网页"
+  },
+  {
+    "tag": "html",
+    "type": "iframe",
+    "src": "https://example.com",
+    "width": "100%",
+    "height": "300px",
+    "frameborder": "0",
+    "style": "margin: 16px 0;"
+  },
+  {
+    "tag": "title",
+    "type": "h2",
+    "text": "4. 使用 code 属性"
+  },
+  {
+    "tag": "html",
+    "code": "<blockquote style=\"border-left: 4px solid #667eea; padding-left: 16px; margin: 16px 0; color: #555;\"><p>\"代码就是诗，编程就是艺术。\"</p><footer style=\"margin-top: 8px; color: #888;\">— 匿名</footer></blockquote>"
+  },
+  {
+    "tag": "title",
+    "type": "h2",
+    "text": "5. 自定义样式"
+  },
+  {
+    "tag": "html",
+    "html": "<div style=\"text-align: center;\"><button style=\"padding: 12px 24px; background: #667eea; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 16px;\">点击按钮</button></div>",
+    "style": "background: #f8f9fa; padding: 20px; border-radius: 8px;"
+  },
+  {
+    "tag": "notice",
+    "type": "info",
+    "text": "HTML 组件支持三种模式：embed（默认）、raw 和 iframe。可以灵活嵌入各种 HTML 内容。"
+  }
+]

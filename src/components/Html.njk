@@ -1,0 +1,7 @@
+{% macro use_html(ctx) %}
+{% if ctx.html %}
+{{ ctx.html | safe }}
+{% elif ctx.code %}
+{{ ctx.code | safe }}
+{% endif %}
+{% endmacro %}

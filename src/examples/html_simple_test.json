@@ -1,0 +1,64 @@
+[
+  {
+    "tag": "title",
+    "type": "h1",
+    "text": "HTML 组件测试 - 邮件专用"
+  },
+  {
+    "tag": "date",
+    "text": "2025-01-20"
+  },
+  {
+    "tag": "divider"
+  },
+  {
+    "tag": "title",
+    "type": "h2",
+    "text": "1. 嵌入自定义样式内容"
+  },
+  {
+    "tag": "html",
+    "html": "<div style=\"padding: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 8px; text-align: center;\"><h3 style=\"margin: 0 0 10px 0; font-size: 24px;\">欢迎使用 HTML 组件</h3><p style=\"margin: 0; font-size: 16px; opacity: 0.9;\">直接嵌入 HTML，完美适配邮件模板</p></div>"
+  },
+  {
+    "tag": "title",
+    "type": "h2",
+    "text": "2. 嵌入表格"
+  },
+  {
+    "tag": "html",
+    "code": "<table style=\"width: 100%; border-collapse: collapse; margin: 16px 0;\"><tr style=\"background: #f5f7fa;\"><th style=\"padding: 12px; border: 1px solid #ddd; text-align: left; color: #333;\">功能</th><th style=\"padding: 12px; border: 1px solid #ddd; text-align: left; color: #333;\">说明</th></tr><tr><td style=\"padding: 12px; border: 1px solid #ddd;\"><strong>直接嵌入</strong></td><td style=\"padding: 12px; border: 1px solid #ddd;\">无需额外容器，HTML 直接渲染</td></tr><tr><td style=\"padding: 12px; border: 1px solid #ddd;\"><strong>邮件兼容</strong></td><td style=\"padding: 12px; border: 1px solid #ddd;\">使用内联样式，兼容各种邮件客户端</td></tr><tr><td style=\"padding: 12px; border: 1px solid #ddd;\"><strong>灵活简单</strong></td><td style=\"padding: 12px; border: 1px solid #ddd;\">只需提供 html 或 code 属性</td></tr></table>"
+  },
+  {
+    "tag": "title",
+    "type": "h2",
+    "text": "3. 嵌入卡片组件"
+  },
+  {
+    "tag": "html",
+    "html": "<div style=\"max-width: 600px; margin: 20px auto; padding: 24px; background: #ffffff; border: 1px solid #e1e4e8; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);\"><div style=\"display: flex; align-items: center; margin-bottom: 16px;\"><div style=\"width: 48px; height: 48px; background: #667eea; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; font-weight: bold;\">✓</div><div style=\"margin-left: 16px;\"><h4 style=\"margin: 0; color: #333; font-size: 18px;\">任务完成</h4><p style=\"margin: 4px 0 0 0; color: #666; font-size: 14px;\">2025-01-20 10:30</p></div></div><p style=\"margin: 0; color: #555; line-height: 1.6;\">您的报告已成功生成并发送。所有组件渲染正常，可以在邮件客户端中完美显示。</p></div>"
+  },
+  {
+    "tag": "title",
+    "type": "h2",
+    "text": "4. 嵌入警告框"
+  },
+  {
+    "tag": "html",
+    "code": "<div style=\"padding: 16px; background: #fff3cd; border-left: 4px solid #ffc107; border-radius: 4px; margin: 16px 0;\"><div style=\"display: flex; align-items: center;\"><span style=\"font-size: 20px; margin-right: 8px;\">⚠️</span><strong style=\"color: #856404;\">重要提示</strong></div><p style=\"margin: 8px 0 0 0; color: #856404;\">使用 HTML 组件时，请确保使用内联样式以获得最佳的邮件客户端兼容性。</p></div>"
+  },
+  {
+    "tag": "title",
+    "type": "h2",
+    "text": "5. 嵌入按钮"
+  },
+  {
+    "tag": "html",
+    "html": "<table style=\"margin: 20px 0;\"><tr><td style=\"padding: 12px 24px; background: #28a745; color: white; text-align: center; border-radius: 6px;\"><a href=\"#\" style=\"color: white; text-decoration: none; font-size: 16px; font-weight: bold; display: block;\">立即查看 →</a></td></tr></table>"
+  },
+  {
+    "tag": "notice",
+    "type": "success",
+    "text": "HTML 组件已成功简化，移除了所有不适用于邮件的功能（如 iframe），现在更加轻量和高效！"
+  }
+]
