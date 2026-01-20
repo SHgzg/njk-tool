@@ -1,6 +1,6 @@
 {
   "name": "njk-tool",
-  "version": "0.0.25",
+  "version": "0.1.0",
   "description": "nunjucks no JavaScript 模板工具，兼容jinja",
   "types": "dist/bundle/type.d.ts",
   "exports": {
